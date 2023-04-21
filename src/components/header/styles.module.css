@@ -1,0 +1,11 @@
+.header_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  margin-bottom: 50px;
+}
+
+.mode_wrapper {
+  cursor: pointer;
+}
