@@ -1,0 +1,26 @@
+.word_intro__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  height: 80px;
+}
+
+.audio_icon {
+  cursor: pointer;
+}
+
+.word {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  margin: 0;
+}
+
+.pronounciation {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #a445ed;
+  margin: 0;
+}

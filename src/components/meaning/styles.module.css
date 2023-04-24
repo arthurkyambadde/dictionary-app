@@ -1,0 +1,21 @@
+.meaning_wrapper {
+  width: 60%;
+}
+
+.meaning {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.antimeria {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.source {
+  display: flex;
+  gap: 10px;
+}
