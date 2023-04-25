@@ -4,7 +4,8 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [text, setText] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(`
+  Please enter a word whose meaning you seek`);
   const [isLoading, setIsLoading] = useState("");
 
   //meaning definitions
@@ -44,15 +45,11 @@ const DataProvider = ({ children }) => {
       setPronounciation(result[0].phonetics[1].text);
       setAudio(result[0].phonetics[1].audio);
     } catch (err) {
-      setError(err.message);
+      setError("word not found");
     } finally {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    searchWord();
-  }, []);
 
   return (
     <DataContext.Provider
