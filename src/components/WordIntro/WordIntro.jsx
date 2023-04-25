@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import AudioIcon from "../icons/audio/AudioIcon";
+import React from "react";
 import styles from "./styles.module.css";
 import { useFetch } from "../../hooks/useFetch";
 
 function WordIntro() {
-  const { word, pronounciation, audio } = useFetch();
+  const { word, pronounciation, audio, nounUsage, error } = useFetch();
 
   const audioFile = audio;
 
@@ -17,14 +16,17 @@ function WordIntro() {
       <div className={styles.audio_icon}>
         <div>
           {/* <AudioIcon /> */}
-          {
+          {nounUsage.length > 0 && (
             <audio controls>
               <source src={audioFile} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
-          }
+          )}
         </div>
       </div>
+      {nounUsage.length === 0 && (
+        <p className={styles.default_statement}>{error}</p>
+      )}
     </div>
   );
 }
