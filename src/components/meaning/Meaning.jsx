@@ -4,9 +4,9 @@ import { useFetch } from "../../hooks/useFetch";
 import Means from "./Means";
 
 function Meaning() {
-  const { nounUsage, synonym, verbUsage } = useFetch();
+  const { nounUsage, synonym, verbUsage, sourceUrls } = useFetch();
 
-  console.log("noun", verbUsage);
+  console.log("noun", sourceUrls);
 
   return (
     <div className={styles.meaning_wrapper}>
@@ -34,8 +34,8 @@ function Meaning() {
       )}
       <p className={styles.source}>
         <span>source:</span>
-        <a href="" target="_blank">
-          https://en.wiktionary.org/wiki/keyboard
+        <a href={sourceUrls[0]} target="_blank">
+          {sourceUrls[0]}
         </a>
       </p>
     </div>
