@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { useFetch } from "../../hooks/useFetch";
 
 function Meaning() {
-  const { data } = useFetch();
   return (
     <div className={styles.meaning_wrapper}>
       <div>
@@ -12,9 +11,9 @@ function Meaning() {
         <ul>
           <li>A set of keys used to operate a typewriter, computer etc.</li>
         </ul>
-        <p>
+        <p className={styles.synonyms}>
           <span>Synonyms</span>
-          <span>electronic</span>
+          <span className={styles.synonym}>electronic</span>
         </p>
       </div>
       <div>

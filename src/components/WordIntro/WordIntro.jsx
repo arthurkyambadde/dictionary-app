@@ -4,12 +4,13 @@ import styles from "./styles.module.css";
 import { useFetch } from "../../hooks/useFetch";
 
 function WordIntro() {
-  const { data } = useFetch();
+  const { word, pronounciation } = useFetch();
+
   return (
     <div className={styles.word_intro__wrapper}>
       <div>
-        <h1 className={styles.word}>Text</h1>
-        <p className={styles.pronounciation}>text</p>
+        <h1 className={styles.word}>{word}</h1>
+        <p className={styles.pronounciation}>{pronounciation}</p>
       </div>
       <div className={styles.audio_icon}>
         <AudioIcon />
@@ -17,6 +18,5 @@ function WordIntro() {
     </div>
   );
 }
-
 
 export default WordIntro;

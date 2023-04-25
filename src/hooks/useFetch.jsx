@@ -1,32 +1,44 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DataContext } from "../contexts/DataContext";
 
 export function useFetch() {
   const [theme, setTheme] = useState("light");
-  const [text, setText] = useState("");
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState("");
-  const [data, setData] = useState("");
 
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
+  const {
+    data,
+    text,
+    setData,
+    setError,
+    setIsLoading,
+    setText,
+    error,
+    isLoading,
+    searchWord,
+    word,
+    nounUsage,
+    verbUsage,
+    synonym,
+    sourceUrls,
+    pronounciation,
+    audio,
+  } = useContext(DataContext);
 
   return {
-    toggleTheme,
     data,
-    setData,
-    isLoading,
-    setIsLoading,
-    searchWord,
-    setTheme,
-    theme,
-    setText,
     text,
-    error,
+    setData,
     setError,
+    setIsLoading,
+    setText,
+    error,
+    isLoading,
+    searchWord,
+    word,
+    nounUsage,
+    verbUsage,
+    synonym,
+    sourceUrls,
+    pronounciation,
+    audio,
   };
 }
