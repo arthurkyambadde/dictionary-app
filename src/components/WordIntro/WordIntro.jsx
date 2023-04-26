@@ -17,7 +17,7 @@ function WordIntro() {
         <div>
           {/* <AudioIcon /> */}
           {nounUsage.length > 0 && (
-            <audio controls>
+            <audio controls key={audioFile + Math.random().toString(36)}>
               <source src={audioFile} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
