@@ -1,9 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DataContext } from "../contexts/DataContext";
 
 export function useFetch() {
-  const [theme, setTheme] = useState("light");
-
   const {
     data,
     text,
