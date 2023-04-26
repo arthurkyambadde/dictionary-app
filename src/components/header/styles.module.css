@@ -10,3 +10,10 @@
 .mode_wrapper {
   cursor: pointer;
 }
+
+.app_name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+}

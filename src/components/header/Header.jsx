@@ -10,6 +10,7 @@ function Header(props) {
   return (
     <div className={styles.header_wrapper}>
       <DictionaryIcon />
+      <span className={styles.app_name}>Your Dictionary</span>
       <div onClick={toggleTheme}>
         {theme === "light" ? <LightModeIcon /> : <NightModeIcon />}
       </div>

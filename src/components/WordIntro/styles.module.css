@@ -24,3 +24,10 @@
   color: #a445ed;
   margin: 0;
 }
+
+.default_statement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
