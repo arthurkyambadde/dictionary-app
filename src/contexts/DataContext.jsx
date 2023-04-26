@@ -1,11 +1,10 @@
-import React, { useState, createContext, useEffect } from "react";
-
+import React, { useState, createContext } from "react";
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [text, setText] = useState("");
   const [error, setError] = useState(`
-  Please enter a word whose meaning you seek`);
+  Please enter a word whose meaning you seek 😊`);
   const [isLoading, setIsLoading] = useState("");
 
   //meaning definitions
@@ -31,6 +30,7 @@ const DataProvider = ({ children }) => {
       );
 
       if (!response.ok) {
+        setError("word not found! Please enter valid english word 😥");
         throw new Error(`Error! status: ${response.status}`);
       }
 
@@ -45,7 +45,7 @@ const DataProvider = ({ children }) => {
       setPronounciation(result[0].phonetics[1].text);
       setAudio(result[0].phonetics[1].audio);
     } catch (err) {
-      setError("word not found");
+      setError("word not found! Please enter valid english word 😥");
     } finally {
       setIsLoading(false);
     }
