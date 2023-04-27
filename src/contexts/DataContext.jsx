@@ -1,10 +1,13 @@
 import React, { useState, createContext } from "react";
+import {
+  INVALID_WORD_ENTERED,
+  NO_WORD_ENTERED_YET,
+} from "../constants/errors.ts";
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [text, setText] = useState("");
-  const [error, setError] = useState(`
-  Please enter a word whose meaning you seek 😊`);
+  const [error, setError] = useState(NO_WORD_ENTERED_YET);
   const [isLoading, setIsLoading] = useState("");
 
   //meaning definitions
@@ -29,14 +32,12 @@ const DataProvider = ({ children }) => {
         }
       );
 
-      if (!response.ok) {
-        setError("word not found! Please enter valid english word 😥");
-        throw new Error(`Error! status: ${response.status}`);
-      }
-
       const result = await response.json();
 
-      // console.log("result is: ", JSON.stringify(result, null, 4));
+      if (response.status === 404) {
+        throw new Error(INVALID_WORD_ENTERED);
+      }
+
       setWord(result[0].word);
       setNounUsage(result[0].meanings[0].definitions);
       setVerbUsage(result[0].meanings[1].definitions);
@@ -45,7 +46,8 @@ const DataProvider = ({ children }) => {
       setPronounciation(result[0].phonetics[1].text);
       setAudio(result[0].phonetics[1].audio);
     } catch (err) {
-      setError("word not found! Please enter valid english word 😥");
+      setError(INVALID_WORD_ENTERED);
+      console.log("error", error);
     } finally {
       setIsLoading(false);
     }

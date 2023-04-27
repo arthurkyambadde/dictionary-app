@@ -12,15 +12,20 @@ function NightModeIcon() {
       >
         <rect y="1" width="40" height="20" rx="10" fill="#A445ED" />
         <circle cx="30" cy="11" r="7" fill="white" />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M60 10.449C59.9985 12.8283 60.8017 15.1383 62.2791 17.0033C63.7566 18.8683 65.8214 20.1788 68.138 20.7218C70.4545 21.2647 72.8866 21.0082 75.039 19.994C77.1912 18.9797 78.9373 17.2673 79.9931 15.1352C70.5442 15.1352 65.858 10.4479 65.858 1C64.0984 1.87311 62.6177 3.22033 61.5827 4.88981C60.5476 6.5593 59.9995 8.48469 60 10.449Z"
-          stroke="#A445ED"
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="green"
+          viewBox="0 0 32 32"
           strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+          stroke="#A445ED"
+          class="w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+          />
+        </svg>
       </svg>
     </div>
   );
