@@ -12,7 +12,7 @@ function Header(props) {
       <DictionaryIcon />
       <span className={styles.app_name}>Your Dictionary</span>
       <div onClick={toggleTheme}>
-        {theme === "light" ? <LightModeIcon /> : <NightModeIcon />}
+        {theme !== "light" ? <NightModeIcon /> : <LightModeIcon />}
       </div>
     </div>
   );

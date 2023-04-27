@@ -15,6 +15,7 @@
   font-weight: 700;
   font-size: 64px;
   margin: 0;
+  text-transform: capitalize;
 }
 
 .pronounciation {

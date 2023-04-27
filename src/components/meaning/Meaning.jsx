@@ -2,13 +2,14 @@ import React from "react";
 import styles from "./styles.module.css";
 import { useFetch } from "../../hooks/useFetch";
 import Means from "./Means";
+import { INVALID_WORD_ENTERED } from "../../constants/errors.ts";
 
 function Meaning() {
-  const { nounUsage, synonym, verbUsage, sourceUrls } = useFetch();
+  const { nounUsage, synonym, verbUsage, sourceUrls, error } = useFetch();
 
   return (
     <>
-      {nounUsage.length > 0 && (
+      {nounUsage.length > 0 && error !== INVALID_WORD_ENTERED && (
         <div className={styles.meaning_wrapper}>
           <div>
             <h3 className={styles.antimeria}>noun</h3>

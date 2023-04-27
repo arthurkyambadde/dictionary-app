@@ -7,7 +7,7 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [text, setText] = useState("");
-  const [error, setError] = useState(NO_WORD_ENTERED_YET);
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState("");
 
   //meaning definitions
@@ -21,6 +21,14 @@ const DataProvider = ({ children }) => {
 
   const searchWord = async () => {
     setIsLoading(true);
+    setError("");
+    setWord(text);
+    setNounUsage([]);
+    setVerbUsage([]);
+    setSynonym([]);
+    setSourceUrls([]);
+    setPronounciation([]);
+    setAudio("");
     try {
       const response = await fetch(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${text}`,
@@ -46,8 +54,11 @@ const DataProvider = ({ children }) => {
       setPronounciation(result[0].phonetics[1].text);
       setAudio(result[0].phonetics[1].audio);
     } catch (err) {
-      setError(INVALID_WORD_ENTERED);
-      console.log("error", error);
+      if (text.length === 0) {
+        setError(NO_WORD_ENTERED_YET);
+      } else {
+        setError(INVALID_WORD_ENTERED);
+      }
     } finally {
       setIsLoading(false);
     }

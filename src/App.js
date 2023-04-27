@@ -25,7 +25,7 @@ function App() {
   return (
     <DataProvider>
       <div className={styles.application}>
-        <Header toggleTheme={toggleTheme} />
+        <Header toggleTheme={toggleTheme} theme={theme} />
         <SearchBar />
         <WordIntro />
         <Meaning />
